@@ -3,11 +3,11 @@ const books = require('./book data');
 
 let booksDirectory = books;
 
-router.get('/', function (req, res) {
+router.get('/books', function (req, res) {
     res.send(booksDirectory);
 });
 
-router.get('/:id', function (req, res) {
+router.get('/books/:id', function (req, res) {
     const { id } = req.params;
     const book = booksDirectory.find(b => b.isbn === id);
     if (!book) return res.status(404).send('Book does not exist');
@@ -15,7 +15,7 @@ router.get('/:id', function (req, res) {
     res.send(book);
 });
 
-router.post('/', function (req, res) {
+router.post('/books', function (req, res) {
     const {
         title,
         isbn,
@@ -86,7 +86,7 @@ router.put('/books/:id', function (req, res) {
     res.send(updatedBook);
 });
 
-router.delete('/:id', function (req, res) {
+router.delete('/books/:id', function (req, res) {
     const { id } = req.params;
 
     let book = booksDirectory.find(b => b.isbn === id);

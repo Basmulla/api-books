@@ -9,6 +9,6 @@ const port = process.env.PORT;
 
 app.use(bodyParser.json());
 app.use(cors({credentials: true, origin: '*'}));
-app.use('https://book-directory-rest-api.herokuapp.com/', api);
+app.use('http://localhost:5000/api', api);
 
 app.listen(port, () => {console.log(`App listening on port ${port}`)});
