@@ -9,6 +9,13 @@ const port = process.env.PORT;
 
 app.use(bodyParser.json());
 app.use(cors({credentials: true, origin: '*'}));
-app.use('http://localhost:5000/api', api);
+app.use('/api', api);
+
+app.use(express.static)
+    if (process.env.NODE_ENV === 'production') {
+      app.get(/^((?!(api)).)*$/, (req, res) => {
+        res.send('Success!')
+      })
+    }
 
 app.listen(port, () => {console.log(`App listening on port ${port}`)});
