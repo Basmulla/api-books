@@ -19,7 +19,8 @@
     "heroku": "^7.60.2"
   },
   "engines": {
-    "node":"16.x"
+    "node":"16.15.0", 
+    "npm":"8.5.5"
   },
   "devDependencies": {
     "nodemon": "^2.0.16"
